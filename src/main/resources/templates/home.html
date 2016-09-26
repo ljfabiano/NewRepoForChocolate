@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TIYAngularApp">
+<!--
+{{! changing the mustache delimiter so it doesn't conflict with  }}
+{{! the default angularjs delimeters - https://mustache.github.io/mustache.5.html for more info  }}
+{{=<% %>=}}
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="tiy-ng-controller.js"></script>
+    <script src="../static/tiy-ng-controller.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body style="background: {{name}}" ng-controller="SampleController">
+
+Welcome to my Chocolate Factory!
+
+<br><br>
+
+oops, factory isn't operational
+
+<br><br>
+
+
+<br><br>
+<h1>Chocs Factory</h1>
+<span>number of big chocolates: <input type="text" ng-model="numBigs"/></span>
+{{numBigs}}
+<br><br>
+
+<span>number of small chocolates: <input type="text" ng-model="numSmalls"/></span>
+
+{{numSmalls}}
+
+<br><br>
+<span>Kilos of chocolate to be made: <input type="text" ng-model="numKilos"/></span>
+
+{{numKilos}}
+
+<br><br>
+<input type="button" ng-click="sendChocolate()" value="Make Chocolate"/>
+<br><br>
+<h1>Sample Variable</h1>
+<span>variable name: <input type="text" ng-model="newChocolate"/></span>
+<span>variable name: <input type="text" ng-model="newText"/></span>
+<br><br>
+<h1>Inventory</h1>
+<br><br>
+
+<div ng-repeat="chocIndex in makeArray(numBigs)">
+    <div class="choc-big-bar">{{chocIndex + 1}}</div>
+</div>
+<br><br>
+<div ng-repeat="chocIndex in makeArray(numSmalls)">
+    <div class="choc-small-bar">{{chocIndex + 1}}</div>
+</div>
+<br><br>
+{{result}}
+<br><br>
+
+<div ng-repeat="chocIndex in makeArray(result.numBigsNeeded)">
+    <div class="choc-big-bar">{{chocIndex + 1}}</div>
+</div>
+<br><br>
+<div ng-repeat="chocIndex in makeArray(result.numSmallsNeeded)">
+    <div class="choc-small-bar">{{chocIndex + 1}}</div>
+</div>
+<br><br>
+
+</body>
+</html>
+<!--
+<body style="background: {{name}}" ng-controller="SampleController">
+<div style="position: relative; float: left; width: 100%; padding: 20px;">
+
+    <h1>{{greeting}} <span ng-bind="name"></span></h1>
+
+    <p>Greeting : <input type="text" ng-model="greeting"></p>
+
+    <p>Name : <input type="text" ng-model="name"></p>
+
+    {{name}} is trying to figure things out ... <br/><br/>
+
+    {{whateverIWantToComeUpWith}}
+
+    {{testVar.SampleContainerVar}}
+
+
+
+    <input type="button" ng-click="getTodos()" value="Refresh Todo Data"/>
+
+</div>
+
+<div style="position: relative; float: left; width: 100%; padding: 20px;">
+    <h1>Enter new todo information</h1>
+    <span>Todo name: <input type="text" ng-model="newTodo.name"/></span>
+    <span>  <input type="button" ng-click="addTodo()" value="Create new todo"/></span>
+
+</div>
+
+
+<div style="position: relative; float: left; width: 40%; padding: 20px;">
+    <h2>Todo List</h2>
+    <ul>
+        <li ng-repeat="todo in todos">
+            {{todo.name}}
+            <button ng-click="deleteTodo(todo.id)">delete</button>
+            <button ng-click="toggleTodo(todo.id)">toggle</button>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>
+-->
